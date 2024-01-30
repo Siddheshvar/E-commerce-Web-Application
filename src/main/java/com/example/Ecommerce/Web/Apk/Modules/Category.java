@@ -18,6 +18,6 @@ public class Category {
     @Column(name = "category_description")
     private @NotNull String description;
 
-    @Column(name = "image_url")
-    private @NotNull String image;
+    @Column(name = "category_url")
+    private @NotNull String categoryURL;
 }

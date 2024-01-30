@@ -40,7 +40,7 @@ public class CategoryServicesImpl implements CategoryServices {
 
         existingCategory.setCategoryName(category.getCategoryName());
         existingCategory.setDescription(category.getDescription());
-        existingCategory.setImage(category.getImage());
+        existingCategory.setCategoryURL(category.getCategoryURL());
 
         return this.categoryRepository.save(existingCategory);
     }
