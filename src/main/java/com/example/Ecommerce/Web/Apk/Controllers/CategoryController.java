@@ -2,7 +2,6 @@ package com.example.Ecommerce.Web.Apk.Controllers;
 
 import com.example.Ecommerce.Web.Apk.Modules.Category;
 import com.example.Ecommerce.Web.Apk.Services.CategoryServices;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
