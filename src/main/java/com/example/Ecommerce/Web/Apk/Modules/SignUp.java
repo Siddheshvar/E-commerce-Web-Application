@@ -1,6 +1,7 @@
 package com.example.Ecommerce.Web.Apk.Modules;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;;
 
@@ -15,16 +16,16 @@ public class SignUp {
     private long UserId;
 
     @Column(name = "Full_Name", length = 50)
-    private String fullName;
+    private @NotNull String fullName;
 
     @Column(name = "Phone_No", length = 13)
-    private long phoneNo;
+    private @NotNull long phoneNo;
 
     @Column(name = "Email_Id", length = 30)
-    private String emailId;
+    private @NotNull String emailId;
 
     @Column(name = "Password", length = 20)
-    private String createPassword;
+    private @NotNull String createPassword;
 
     /*public SignUp(String fullName, long phoneNo, String emailId, String createPassword) {
         this.fullName = fullName;

@@ -1,6 +1,7 @@
 package com.example.Ecommerce.Web.Apk.Modules;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.Getter;
 
@@ -14,9 +15,9 @@ public class Login {
     private long userId;
 
     @Column(name = "User_Id")
-    private String emailId;
+    private @NotNull String emailId;
 
     @Column(name = "Password")
-    private String password;
+    private @NotNull String password;
 
 }
