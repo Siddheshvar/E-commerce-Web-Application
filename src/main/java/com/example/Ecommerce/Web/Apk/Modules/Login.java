@@ -17,7 +17,7 @@ public class Login {
     @Column(name = "User_Id")
     private @NotNull String emailId;
 
-    @Column(name = "Password")
+    @Column(name = "Password",length = 20)
     private @NotNull String password;
 
 }

@@ -12,10 +12,10 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "category_name")
+    @Column(name = "category_name", length = 50)
     private @NotNull String categoryName;
 
-    @Column(name = "category_description")
+    @Column(name = "category_description", length = 500)
     private @NotNull String description;
 
     @Column(name = "category_url")

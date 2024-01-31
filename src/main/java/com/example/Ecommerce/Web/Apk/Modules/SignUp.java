@@ -18,10 +18,10 @@ public class SignUp {
     @Column(name = "Full_Name", length = 50)
     private @NotNull String fullName;
 
-    @Column(name = "Phone_No", length = 13)
+    @Column(name = "Phone_No", length = 14)
     private @NotNull long phoneNo;
 
-    @Column(name = "Email_Id", length = 30)
+    @Column(name = "Email_Id", length = 40)
     private @NotNull String emailId;
 
     @Column(name = "Password", length = 20)
