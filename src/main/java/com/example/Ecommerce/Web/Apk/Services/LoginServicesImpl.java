@@ -1,4 +1,4 @@
-package com.example.Ecommerce.Web.Apk.Services.Impl;
+package com.example.Ecommerce.Web.Apk.Services;
 
 import com.example.Ecommerce.Web.Apk.Modules.Login;
 import com.example.Ecommerce.Web.Apk.Repositories.LoginRepository;

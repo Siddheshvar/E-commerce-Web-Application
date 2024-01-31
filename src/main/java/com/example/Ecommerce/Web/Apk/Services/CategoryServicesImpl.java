@@ -1,8 +1,7 @@
-package com.example.Ecommerce.Web.Apk.Services.Impl;
+package com.example.Ecommerce.Web.Apk.Services;
 
 import com.example.Ecommerce.Web.Apk.Modules.Category;
 import com.example.Ecommerce.Web.Apk.Repositories.CategoryRepository;
-import com.example.Ecommerce.Web.Apk.Services.CategoryServices;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
