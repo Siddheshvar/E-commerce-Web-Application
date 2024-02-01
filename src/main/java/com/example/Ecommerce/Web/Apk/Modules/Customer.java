@@ -3,17 +3,17 @@ package com.example.Ecommerce.Web.Apk.Modules;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.NoArgsConstructor;;
+;import java.util.List;
 
 @Entity
 @Data
-@Table(name = "SignUps")
+@Table(name = "Customers")
 //@NoArgsConstructor
-public class SignUp {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "User_Id")
-    private long UserId;
+    @Column(name = "Customer_Id")
+    private long customerId;
 
     @Column(name = "Full_Name", length = 50)
     private @NotNull String fullName;
@@ -27,7 +27,11 @@ public class SignUp {
     @Column(name = "Password", length = 20)
     private @NotNull String createPassword;
 
-    /*public SignUp(String fullName, long phoneNo, String emailId, String createPassword) {
+    @OneToMany(targetEntity = Products.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ForeignKey",referencedColumnName = "Customer_Id")
+    private List<Products> products;
+
+    /*public Customer(String fullName, long phoneNo, String emailId, String createPassword) {
         this.fullName = fullName;
         this.phoneNo = phoneNo;
         this.emailId = emailId;
