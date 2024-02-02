@@ -15,18 +15,18 @@ public class Customer {
     @Column(name = "Customer_Id")
     private long customerId;
 
-    @Column(name = "Full_Name", length = 50)
+    @Column(name = "Full_Name", length = 30,nullable = false)
     @Pattern(regexp = "^[A-Z][a-z]+( [A-Z][a-z]+)*([A-Z][a-z]+)?$")
     private String fullName;
 
-    @Column(name = "Phone_No", length = 14)
+    @Column(name = "Phone_No", length = 14,nullable = false)
     private long phoneNo;
 
-    @Column(name = "Email_Id", length = 40)
+    @Column(name = "Email_Id", length = 40,nullable = false)
     @Pattern(regexp = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,3}$\", message = \"Please enter a valid email address.")
     private String emailId;
 
-    @Column(name = "Password", length = 20)
+    @Column(name = "Password", length = 20,nullable = false)
     private String createPassword;
 
     @OneToMany(targetEntity = Products.class, cascade = CascadeType.ALL)

@@ -2,7 +2,6 @@ package com.example.Ecommerce.Web.Apk.Services;
 
 import com.example.Ecommerce.Web.Apk.Modules.Category;
 import com.example.Ecommerce.Web.Apk.Repositories.CategoryRepository;
-import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -33,7 +32,7 @@ public class CategoryServicesImpl implements CategoryServices {
     }
 
     @Override
-    public Category updateCatById(@NotNull Category category, Integer id) {
+    public Category updateCatById(Category category, Integer id) {
         Category existingCategory = categoryRepository.findById(id).orElseThrow(()->
                 new RuntimeException("Category not found!"));
 
@@ -45,7 +44,7 @@ public class CategoryServicesImpl implements CategoryServices {
     }
 
     @Override
-    public void deleteCatById(@NotNull Integer id) {
+    public void deleteCatById(Integer id) {
         categoryRepository.findById(id).orElseThrow(()->
                 new RuntimeException("Category not found!"));
         categoryRepository.deleteById(id);
