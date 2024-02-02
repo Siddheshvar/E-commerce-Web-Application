@@ -1,9 +1,9 @@
 package com.example.Ecommerce.Web.Apk.Modules;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.Getter;
+
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Data
@@ -11,13 +11,14 @@ import lombok.Getter;
 public class Login {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Email_Id")
+    @Column(name = "userId")
     private long userId;
 
-    @Column(name = "User_Id")
-    private @NotNull String emailId;
+    @Column(name = "EmailId",nullable = false)
+    @Pattern(regexp = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,3}$\", message = \"Please enter a valid email address.")
+    private String emailId;
 
-    @Column(name = "Password",length = 20)
-    private @NotNull String password;
+    @Column(name = "Password",length = 20,nullable = false)
+    private String password;
 
 }

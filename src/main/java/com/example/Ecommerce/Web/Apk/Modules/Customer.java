@@ -1,9 +1,9 @@
 package com.example.Ecommerce.Web.Apk.Modules;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-;import java.util.List;
+;import javax.validation.constraints.Pattern;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,16 +16,18 @@ public class Customer {
     private long customerId;
 
     @Column(name = "Full_Name", length = 50)
-    private @NotNull String fullName;
+    @Pattern(regexp = "^[A-Z][a-z]+( [A-Z][a-z]+)*([A-Z][a-z]+)?$")
+    private String fullName;
 
     @Column(name = "Phone_No", length = 14)
-    private @NotNull long phoneNo;
+    private long phoneNo;
 
     @Column(name = "Email_Id", length = 40)
-    private @NotNull String emailId;
+    @Pattern(regexp = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,3}$\", message = \"Please enter a valid email address.")
+    private String emailId;
 
     @Column(name = "Password", length = 20)
-    private @NotNull String createPassword;
+    private String createPassword;
 
     @OneToMany(targetEntity = Products.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "ForeignKey",referencedColumnName = "Customer_Id")
