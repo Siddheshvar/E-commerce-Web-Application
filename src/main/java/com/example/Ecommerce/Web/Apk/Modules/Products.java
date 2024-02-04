@@ -22,4 +22,11 @@ public class Products {
 
     @Column(name = "product_URL",nullable = false)
     private String prURL;
+
+    @Column(name = "stock_quantity")
+    private long stockQuantity;
+
+//    @ManyToOne
+//    @JoinColumn(name = "orderId")
+//    private Order order;
 }

@@ -29,9 +29,11 @@ public class Customer {
     @Column(name = "Password", length = 20,nullable = false)
     private String createPassword;
 
-    @OneToMany(targetEntity = Products.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "ForeignKey",referencedColumnName = "Customer_Id")
-    private List<Products> products;
+    @Column(name = "Address")
+    private  String address;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> products;
 
     /*public Customer(String fullName, long phoneNo, String emailId, String createPassword) {
         this.fullName = fullName;
