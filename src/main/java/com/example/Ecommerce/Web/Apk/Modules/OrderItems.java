@@ -1,12 +1,16 @@
 package com.example.Ecommerce.Web.Apk.Modules;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Entity
+@Data
 public class OrderItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long itemId;
-    @OneToMany(mappedBy = "Products")
+    @ManyToOne
+    @JoinColumn(name = "product_Id")
     private Products productDetails;
 
     @Column(name = "Item_Qty")
