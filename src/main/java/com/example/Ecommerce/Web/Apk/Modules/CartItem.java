@@ -4,23 +4,23 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.catalina.LifecycleState;
 
-import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cart {
+public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long cartId;
+    private long cartItemId;
+    private int itemQty;
 
     @ManyToOne
-    @JoinColumn(name = "customerId")
-    private Customer customer;
+    @JoinColumn(name = "product_Id")
+    private Products productsDetails;
 
-    @OneToMany(mappedBy = "cart")
-    private List<CartItem> cartItems;
+    @ManyToOne
+    @JoinColumn(name = "cartId")
+    private Cart cart;
 }

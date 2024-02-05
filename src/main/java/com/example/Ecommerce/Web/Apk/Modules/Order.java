@@ -20,19 +20,18 @@ public class Order {
     @Column(name = "TotalAmount")
     private Double totalAmount;
 
-    @Column(name = "ShippingAddressId")
-    private long shippingAdsId;
+    private long addressId;
 
     @ManyToOne
-    @JoinColumn(name = "ShippingAddressId")
-    private Address shippingAddress;
+    @JoinColumn(name = "addressId")
+    private Address address;
 
-    @OneToOne(mappedBy = "Order")
+    @OneToOne(mappedBy = "order")
     private Payment payment;
 
     @ManyToOne
     @JoinColumn(name = "Customer_Id")
-    private Customer customerDetails;
+    private Customer customer;
 
     @OneToMany(mappedBy = "order")
     private List <OrderItems> orderItems;

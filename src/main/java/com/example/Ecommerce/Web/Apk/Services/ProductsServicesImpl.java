@@ -2,7 +2,6 @@ package com.example.Ecommerce.Web.Apk.Services;
 
 import com.example.Ecommerce.Web.Apk.Modules.Products;
 import com.example.Ecommerce.Web.Apk.Repositories.ProductsRepository;
-import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.lang.module.ResolutionException;
@@ -35,19 +34,21 @@ public class ProductsServicesImpl implements ProductsServices{
     }
 
     @Override
-    public Products updateProductById(@NotNull Products products, long id) {
+    public Products updateProductById(Products products, long id) {
         Products existingProduct = productsRepository.findById(id).orElseThrow(()->
                 new ResolutionException("Product not found!"));
 
-        existingProduct.setPrName(products.getPrName());
-        existingProduct.setPrPrice(products.getPrPrice());
-        existingProduct.setPrURL(products.getPrURL());
+        existingProduct.setProduct_name(products.getProduct_name());
+        existingProduct.setProduct_price(products.getProduct_price());
+        existingProduct.setProduct_description(products.getProduct_description());
+        existingProduct.setProduct_URL(products.getProduct_URL());
+        existingProduct.setStockQuantity(products.getStockQuantity());
 
         return this.productsRepository.save(existingProduct);
     }
 
     @Override
-    public void deleteProductById(@NotNull long id) {
+    public void deleteProductById(long id) {
         productsRepository.findById(id).orElseThrow(()->
                 new ResolutionException("Product not found!"));
         productsRepository.deleteById(id);

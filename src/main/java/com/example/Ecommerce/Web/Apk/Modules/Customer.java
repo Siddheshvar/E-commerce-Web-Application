@@ -12,7 +12,7 @@ import java.util.List;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Customer_Id")
+    @Column(name = "customer_Id")
     private long customerId;
 
     @Column(name = "Full_Name", length = 30,nullable = false)
@@ -32,7 +32,7 @@ public class Customer {
     @Column(name = "Address")
     private  String address;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "customer")
     private List<Order> products;
 
     /*public Customer(String fullName, long phoneNo, String emailId, String createPassword) {

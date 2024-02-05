@@ -12,7 +12,7 @@ public class Payment {
 
     @OneToOne
     @JoinColumn(name = "orderId")
-    private Order orderDetails;
+    private Order order;
     private double amount;
 
 }

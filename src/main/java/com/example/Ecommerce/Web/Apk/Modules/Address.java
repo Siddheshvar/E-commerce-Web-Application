@@ -15,8 +15,9 @@ public class Address {
     @JoinColumn(name = "Customer_Id")
     private Customer customer;
 
-    @OneToMany(mappedBy = "Customer_Id")
+    @OneToMany(mappedBy = "addressId")
     private List<Order> orders;
+
     private String street;
     private String City;
     private  String state;
