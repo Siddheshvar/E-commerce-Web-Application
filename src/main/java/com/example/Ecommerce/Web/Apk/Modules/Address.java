@@ -6,16 +6,17 @@ import lombok.Data;
 import java.util.List;
 
 @Entity
-@Data
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long addressId;
+    @Column(insertable=false, updatable=false,name = "address_id")
+    private long address_id;
+
     @ManyToOne
     @JoinColumn(name = "Customer_Id")
     private Customer customer;
 
-    @OneToMany(mappedBy = "addressId")
+    @OneToMany(mappedBy = "address")
     private List<Order> orders;
 
     private String street;

@@ -11,7 +11,7 @@ import java.util.Set;
 public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_Id")
+    @Column(name = "product_id")
     private long product_Id;
 
     @Column(name = "product_name", length = 70,nullable = false)
@@ -30,7 +30,7 @@ public class Products {
     private long stockQuantity;
 
     @ManyToOne
-    @JoinColumn(name = "orderId")
+    @JoinColumn(name = "order_Id")
     private Order order;
 
     @ManyToMany(mappedBy = "products")

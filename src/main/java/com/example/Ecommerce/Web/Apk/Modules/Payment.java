@@ -8,11 +8,14 @@ import lombok.Data;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "payment_Id")
     private long paymentId;
 
     @OneToOne
-    @JoinColumn(name = "orderId")
+    @JoinColumn(name = "order_id")
     private Order order;
-    private double amount;
+
+    @Column(name = "amount")
+    private Double amount;
 
 }

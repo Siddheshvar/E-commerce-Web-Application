@@ -32,7 +32,7 @@ public class Customer {
     @Column(name = "Address")
     private  String address;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customers",cascade = CascadeType.ALL)
     private List<Order> products;
 
     /*public Customer(String fullName, long phoneNo, String emailId, String createPassword) {

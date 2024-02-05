@@ -8,19 +8,18 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name ="Order")
+@Table(name ="Orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long orderId;
+    @Column(name = "order_id")
+    private long order_id;
 
     @Column(name = "OrderDateTime")
     private LocalDateTime orderDateTime;
 
     @Column(name = "TotalAmount")
     private Double totalAmount;
-
-    private long addressId;
 
     @ManyToOne
     @JoinColumn(name = "addressId")
@@ -30,10 +29,10 @@ public class Order {
     private Payment payment;
 
     @ManyToOne
-    @JoinColumn(name = "Customer_Id")
-    private Customer customer;
+    @JoinColumn(name = "customer_Id")
+    private Customer customers;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List <OrderItems> orderItems;
 
 }

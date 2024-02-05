@@ -11,6 +11,7 @@ import java.util.Set;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "category_id")
     private Integer categoryId;
 
     @Column(name = "category_name", length = 50,nullable = false)
@@ -22,7 +23,7 @@ public class Category {
     @ManyToMany
     @JoinTable(
             name = "category_product",
-            joinColumns = @JoinColumn(name = "categoryId"),
+            joinColumns = @JoinColumn(name = "category_id"),
             inverseJoinColumns = @JoinColumn(name = "product_Id")
     )
     private Set<Products> products;
