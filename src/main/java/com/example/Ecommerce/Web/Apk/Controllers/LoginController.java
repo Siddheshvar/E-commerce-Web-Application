@@ -14,7 +14,6 @@ import java.util.List;
 public class LoginController {
     @Autowired
     private LoginServices loginServices;
-
     public LoginController(LoginServices loginServices) {
         this.loginServices = loginServices;
     }

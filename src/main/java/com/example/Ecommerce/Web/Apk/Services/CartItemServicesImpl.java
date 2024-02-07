@@ -1,6 +1,6 @@
 package com.example.Ecommerce.Web.Apk.Services;
 
-import com.example.Ecommerce.Web.Apk.Modules.CartItem;
+import com.example.Ecommerce.Web.Apk.Modules.CartItems;
 import com.example.Ecommerce.Web.Apk.Repositories.CartItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,24 +16,24 @@ public class CartItemServicesImpl implements CartItemServices{
     }
 
     @Override
-    public CartItem saveItems(CartItem item) {
+    public CartItems saveItems(CartItems item) {
         return this.cartItemRepository.save(item);
     }
 
     @Override
-    public List<CartItem> getCartItems() {
+    public List<CartItems> getCartItems() {
         return this.cartItemRepository.findAll();
     }
 
     @Override
-    public CartItem getCartItemsById(long id) {
+    public CartItems getCartItemsById(long id) {
         return this.cartItemRepository.findById(id).orElseThrow(()->
                 new RuntimeException("CartRepository item not found!"));
     }
 
     @Override
-    public CartItem updateCartItemById(CartItem item, long id) {
-        CartItem existingItems = cartItemRepository.findById(id).orElseThrow(()->
+    public CartItems updateCartItemById(CartItems item, long id) {
+        CartItems existingItems = cartItemRepository.findById(id).orElseThrow(()->
                 new RuntimeException("CartRepository item not found!"));
         existingItems.setItemQty(item.getItemQty());
 
