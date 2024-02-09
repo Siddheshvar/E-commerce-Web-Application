@@ -29,8 +29,8 @@ public class Customer {
     @Column(name = "Password", length = 20,nullable = false)
     private String createPassword;
 
-    @Column(name = "Address")
-    private  String address;
+//    @Column(name = "Address")
+//    private  String address;
 
     @OneToMany(mappedBy = "customers",cascade = CascadeType.ALL)
     private List<Order> products;

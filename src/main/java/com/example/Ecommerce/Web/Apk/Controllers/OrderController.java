@@ -1,10 +1,7 @@
 package com.example.Ecommerce.Web.Apk.Controllers;
 
-import com.example.Ecommerce.Web.Apk.DTO.OrderRequest;
-import com.example.Ecommerce.Web.Apk.Modules.Customer;
+
 import com.example.Ecommerce.Web.Apk.Modules.Order;
-import com.example.Ecommerce.Web.Apk.Repositories.CustomerRepository;
-import com.example.Ecommerce.Web.Apk.Repositories.ProductsRepository;
 import com.example.Ecommerce.Web.Apk.Services.OrderServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
