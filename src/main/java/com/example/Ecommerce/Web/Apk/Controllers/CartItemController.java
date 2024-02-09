@@ -21,7 +21,7 @@ public class CartItemController {
     }
 
     @PostMapping("/saveItems")
-    public ResponseEntity<CartItems> saveItems(CartItems item){
+    public ResponseEntity<CartItems> saveItems(@RequestBody CartItems item){
         return new ResponseEntity<CartItems>(cartItemServices.saveItems(item), HttpStatus.OK);
     }
     @GetMapping("getItems")

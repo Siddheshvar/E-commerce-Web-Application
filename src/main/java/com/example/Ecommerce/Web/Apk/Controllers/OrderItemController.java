@@ -21,7 +21,7 @@ public class OrderItemController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<OrderItems> saveOrderItems(OrderItems items){
+    public ResponseEntity<OrderItems> saveOrderItems(@RequestBody OrderItems items){
         return  new ResponseEntity<OrderItems>(orderItemsServices.saveOrderItems(items), HttpStatus.OK);
     }
 

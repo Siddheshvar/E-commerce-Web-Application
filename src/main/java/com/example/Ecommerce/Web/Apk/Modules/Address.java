@@ -11,7 +11,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable=false, updatable=false,name = "address_id")
-    private long address_id;
+    private Long address_id;
 
     @ManyToOne
     @JoinColumn(name = "Customer_Id")
@@ -22,7 +22,8 @@ public class Address {
 
     private String street;
     private String City;
-    private  String state;
+    private String state;
     private String country;
+    private Integer countryCode;
 
 }

@@ -19,22 +19,22 @@ public class AddressController {
         this.addressServices = addressServices;
     }
 
-    @PostMapping("/saveAddress")
-    public ResponseEntity<Address> saveAddress(Address address){
+    @PostMapping("/save")
+    public ResponseEntity<Address> saveAddress(@RequestBody Address address){
         return new ResponseEntity<>(addressServices.saveAddress(address), HttpStatus.OK);
     }
 
-    @GetMapping("/getAddresses")
+    @GetMapping("/getAll")
     public List<Address> getAllAddress(){
         return  new ArrayList<>(addressServices.getAllAddress());
     }
 
-    @GetMapping("/getAddress/{id}")
+    @GetMapping("/get/{id}")
     public ResponseEntity<Address> getAddressById(@PathVariable("id")long id){
         return new ResponseEntity<Address>(addressServices.getAddressById(id),HttpStatus.OK);
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Address> updateAddressById(@PathVariable("id")long id,
                                                      @RequestBody Address address){
         return  new ResponseEntity<Address>(addressServices.updateAddressById(address,id),HttpStatus.OK);

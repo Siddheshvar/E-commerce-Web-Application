@@ -20,7 +20,7 @@ public class PaymentController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Payment> savePayment(Payment payment){
+    public ResponseEntity<Payment> savePayment(@RequestBody Payment payment){
         return new ResponseEntity<Payment>(paymentServices.savePayment(payment), HttpStatus.OK);
     }
     @GetMapping("/getAll")

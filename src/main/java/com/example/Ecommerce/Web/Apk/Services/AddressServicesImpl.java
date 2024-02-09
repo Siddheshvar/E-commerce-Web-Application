@@ -3,6 +3,7 @@ package com.example.Ecommerce.Web.Apk.Services;
 
 import com.example.Ecommerce.Web.Apk.Modules.Address;
 import com.example.Ecommerce.Web.Apk.Repositories.AddressRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,13 +28,14 @@ public class AddressServicesImpl implements AddressServices{
     }
 
     @Override
-    public Address updateAddressById(Address address, long id) {
+    public Address updateAddressById(@NotNull Address address, long id) {
         Address existingAddress = addressRepository.findById(id).orElseThrow(()->
                 new RuntimeException("Address not found!"));
         existingAddress.setStreet(address.getStreet());
         existingAddress.setCity(address.getCity());
         existingAddress.setState(address.getState());
         existingAddress.setCountry(address.getCountry());
+        existingAddress.setCountryCode(address.getCountryCode());
         existingAddress.setOrders(address.getOrders());
 
         return this.addressRepository.save(existingAddress);
