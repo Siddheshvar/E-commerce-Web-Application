@@ -1,15 +1,18 @@
 package com.example.Ecommerce.Web.Apk.Services;
 
 import com.example.Ecommerce.Web.Apk.Modules.Category;
+import com.example.Ecommerce.Web.Apk.Repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public interface CategoryServices {
-    Category createCat(Category category);
+
+    Category saveCategory(Category category);
     List<Category> getAllCategory();
-    Category getCatById(Integer id);
-    Category updateCatById(Category category, Integer id);
-    void deleteCatById(Integer id);
+    Category getCategoryById(int id);
+    Category updateCategoryById(Category category,int id);
+    void deleteCategoryById(int id);
+
 }

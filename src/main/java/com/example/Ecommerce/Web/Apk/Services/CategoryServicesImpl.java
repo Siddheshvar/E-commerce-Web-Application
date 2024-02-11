@@ -2,21 +2,20 @@ package com.example.Ecommerce.Web.Apk.Services;
 
 import com.example.Ecommerce.Web.Apk.Modules.Category;
 import com.example.Ecommerce.Web.Apk.Repositories.CategoryRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
-public class CategoryServicesImpl implements CategoryServices {
+public class CategoryServicesImpl implements CategoryServices{
     @Autowired
     private CategoryRepository categoryRepository;
 
-    public CategoryServicesImpl(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
 
     @Override
-    public Category createCat(Category category) {
+    public Category saveCategory(Category category) {
         return this.categoryRepository.save(category);
     }
 
@@ -26,13 +25,13 @@ public class CategoryServicesImpl implements CategoryServices {
     }
 
     @Override
-    public Category getCatById(Integer id) {
+    public Category getCategoryById(int id) {
         return this.categoryRepository.findById(id).orElseThrow(()->
                 new RuntimeException("Category not found!"));
     }
 
     @Override
-    public Category updateCatById(Category category, Integer id) {
+    public Category updateCategoryById(@NotNull Category category, int id) {
         Category existingCategory = categoryRepository.findById(id).orElseThrow(()->
                 new RuntimeException("Category not found!"));
 
@@ -44,7 +43,7 @@ public class CategoryServicesImpl implements CategoryServices {
     }
 
     @Override
-    public void deleteCatById(Integer id) {
+    public void deleteCategoryById(int id) {
         categoryRepository.findById(id).orElseThrow(()->
                 new RuntimeException("Category not found!"));
         categoryRepository.deleteById(id);

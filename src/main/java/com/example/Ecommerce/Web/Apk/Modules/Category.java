@@ -1,34 +1,39 @@
 package com.example.Ecommerce.Web.Apk.Modules;
+
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import javax.validation.constraints.NotNull;
-import java.util.List;
+import lombok.NoArgsConstructor;
+
 import java.util.Set;
 
 @Entity
 @Data
-@Table(name = "Category")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Category {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "category_id")
+    @Column(name = "categoryId")
     private Integer categoryId;
 
-    @Column(name = "category_name", length = 50,nullable = false)
-    private String categoryName;
+    @Column(name = "CategoryName")
+    private String CategoryName;
 
-    @Column(name = "category_description", length = 500,nullable = false)
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "URL")
+    private String categoryURL;
+
 
     @ManyToMany
     @JoinTable(
             name = "category_product",
-            joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_Id")
+            joinColumns=@JoinColumn(name = "categoryId"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    private Set<Products> products;
-
-    @Column(name = "category_url",nullable = false)
-    private String categoryURL;
+    public Set<Products> products;
 
 }

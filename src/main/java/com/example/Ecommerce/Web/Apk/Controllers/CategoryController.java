@@ -16,33 +16,27 @@ public class CategoryController {
     @Autowired
     private CategoryServices categoryServices;
 
-    public CategoryController(CategoryServices categoryServices) {
-        this.categoryServices = categoryServices;
-    }
-
     @PostMapping("/save")
-    public ResponseEntity<Category> createCat(@RequestBody Category category){
-        return new ResponseEntity<>(categoryServices.createCat(category), HttpStatus.OK);
+    public ResponseEntity<Category> saveCategory(@RequestBody Category category){
+        return new ResponseEntity<>(categoryServices.saveCategory(category), HttpStatus.OK);
     }
-
-    @GetMapping("/get/all")
+    @GetMapping("/getall")
     public List<Category> getAllCategory(){
         return new ArrayList<Category>(categoryServices.getAllCategory());
     }
-
     @GetMapping("/get/{id}")
-    public ResponseEntity<Category> getCatById(@PathVariable("id")Integer id){
-        return new ResponseEntity<Category>(categoryServices.getCatById(id),HttpStatus.OK);
+    public ResponseEntity<Category> getCategoryById(@PathVariable("id") int id){
+        return new ResponseEntity<Category>(categoryServices.getCategoryById(id),HttpStatus.OK);
     }
-
     @PutMapping("/update/{id}")
-    public ResponseEntity<Category> updateCatById(@RequestBody Category category,
-                                                  @PathVariable("id")Integer id){
-        return new ResponseEntity<Category>(categoryServices.updateCatById(category,id),HttpStatus.OK);
+    public ResponseEntity<Category> updateCategoryById(@PathVariable("id")int id,
+                                                       @RequestBody Category category){
+        return new ResponseEntity<Category>(categoryServices.updateCategoryById(category,id),HttpStatus.OK);
     }
-
-    public ResponseEntity<Category> deleteCatById(@PathVariable("id")Integer id){
-        categoryServices.deleteCatById(id);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Category> deleteCategoryById(@PathVariable("id") int id){
+        categoryServices.deleteCategoryById(id);
         return new ResponseEntity<Category>(HttpStatus.OK);
     }
+
 }
