@@ -36,7 +36,7 @@ public class ProductsServicesImpl implements ProductsServices{
     @Override
     public Products updateProductById(Products products, long id) {
         Products existingProduct = productsRepository.findById(id).orElseThrow(()->
-                new ResolutionException("Product not found!"));
+                new RuntimeException("Product not found!"));
 
         existingProduct.setProduct_name(products.getProduct_name());
         existingProduct.setProduct_price(products.getProduct_price());

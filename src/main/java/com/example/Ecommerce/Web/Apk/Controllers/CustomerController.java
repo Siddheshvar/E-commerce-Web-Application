@@ -19,12 +19,12 @@ public class CustomerController {
         this.customerServices = customerServices;
     }
 
-    @PostMapping("/create")
+    @PostMapping("/save")
     public ResponseEntity<Customer> createUser(@RequestBody Customer customer){
         return new ResponseEntity<>(this.customerServices.createCustomer(customer),HttpStatus.OK);
     }
 
-    @GetMapping("/getCustomers")
+    @GetMapping("/getall")
     public List<Customer> getUsers(){
         return customerServices.getCustomers();
     }

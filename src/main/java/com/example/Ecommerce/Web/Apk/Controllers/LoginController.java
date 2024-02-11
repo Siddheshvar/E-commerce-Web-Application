@@ -23,12 +23,12 @@ public class LoginController {
         return new ResponseEntity<>(this.loginServices.createUser(login), HttpStatus.OK);
     }
 
-    @GetMapping("/getusers")
+    @GetMapping("/getall")
     public List<Login> getAllUsers(){
         return loginServices.getAllUsers();
     }
 
-    @GetMapping("/getuser/{id}")
+    @GetMapping("/get/{id}")
     public ResponseEntity<Login> getUserById(@PathVariable("id") long id){
         return new ResponseEntity<Login>(this.loginServices.getUserById(id),HttpStatus.OK);
     }

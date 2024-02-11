@@ -29,15 +29,12 @@ public class Products {
     @Column(name = "stock_quantity")
     private long stockQuantity;
 
-    @ManyToOne
-    @JoinColumn(name = "order_Id")
-    private Order order;
-
-    @ManyToMany(mappedBy = "products")
-    private Set<Category> categories;
-
-
-
+//    @ManyToOne
+//    @JoinColumn(name = "order_Id")
+//    private Order order;
+//
+//    @ManyToMany(mappedBy = "products")
+//    private Set<Category> categories;
 
 //    @ManyToOne
 //    @JoinColumn(name = "orderId")
