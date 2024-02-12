@@ -2,6 +2,7 @@ package com.example.Ecommerce.Web.Apk.Services;
 
 import com.example.Ecommerce.Web.Apk.Modules.Order;
 import com.example.Ecommerce.Web.Apk.Repositories.OrderRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,7 @@ import java.util.List;
 public class OrderServicesImpl implements OrderServices{
     @Autowired
     private OrderRepository orderRepository;
-    public OrderServicesImpl(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
-    }
+
 
     @Override
     public Order saveOrder(Order order) {
@@ -21,23 +20,28 @@ public class OrderServicesImpl implements OrderServices{
     }
 
     @Override
-    public List<Order> getAllOrders() {
+    public List<Order> getAllOrder() {
         return this.orderRepository.findAll();
     }
 
     @Override
-    public Order getOrderById(long id) {
+    public Order getOderById(int id) {
         return this.orderRepository.findById(id).orElseThrow(()->
                 new RuntimeException("Order not found!"));
     }
 
     @Override
-    public Order updateOrderById(Order order, long id) {
-        return null;
+    public Order updateOrderById(@NotNull Order order, int id) {
+        Order oldOrder = orderRepository.findById(id).orElseThrow(()->
+                new RuntimeException("Order not found!"));
+        oldOrder.setDateTime(order.getDateTime());
+        oldOrder.setTotalAmount(order.getTotalAmount());
+
+        return this.orderRepository.save(oldOrder);
     }
 
     @Override
-    public void deleteOrderById(long id) {
+    public void deleteOrderById(int id) {
         orderRepository.findById(id).orElseThrow(()->
                 new RuntimeException("Order not found!"));
         orderRepository.deleteById(id);

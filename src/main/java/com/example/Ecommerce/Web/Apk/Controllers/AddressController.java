@@ -15,33 +15,30 @@ import java.util.List;
 public class AddressController {
     @Autowired
     private AddressServices addressServices;
-    public AddressController(AddressServices addressServices) {
-        this.addressServices = addressServices;
-    }
 
     @PostMapping("/save")
-    public ResponseEntity<Address> saveAddress(@RequestBody Address address){
-        return new ResponseEntity<>(addressServices.saveAddress(address), HttpStatus.OK);
+    public ResponseEntity<Address> save(@RequestBody Address address){
+        return new ResponseEntity<Address>(addressServices.saveAddress(address), HttpStatus.OK);
     }
 
-    @GetMapping("/getAll")
-    public List<Address> getAllAddress(){
-        return  new ArrayList<>(addressServices.getAllAddress());
+    @GetMapping("/getall")
+    public List<Address> allAddress(){
+        return new ArrayList<Address>(addressServices.getall());
     }
 
-    @GetMapping("/get/{id}")
-    public ResponseEntity<Address> getAddressById(@PathVariable("id")long id){
+    @GetMapping("get/{id}")
+    public ResponseEntity<Address> getById(@PathVariable("id") int id){
         return new ResponseEntity<Address>(addressServices.getAddressById(id),HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Address> updateAddressById(@PathVariable("id")long id,
-                                                     @RequestBody Address address){
-        return  new ResponseEntity<Address>(addressServices.updateAddressById(address,id),HttpStatus.OK);
+    public ResponseEntity<Address> update(@PathVariable("id")int id,
+                                              @RequestBody Address address){
+        return new ResponseEntity<Address>(addressServices.updateAddressById(address,id),HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Address> deleteAddressById(@PathVariable("id")long id){
+    public ResponseEntity<Address> delete(@PathVariable("id")int id){
         addressServices.deleteAddressById(id);
         return new ResponseEntity<Address>(HttpStatus.OK);
     }
