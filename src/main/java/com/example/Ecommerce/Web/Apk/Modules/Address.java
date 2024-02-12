@@ -21,6 +21,8 @@ public class Address {
     private String city;
     private String district;
     private int pinCode;
+    private String state;
+    private String country;
 
     @ManyToOne
     @JoinColumn(name = "customer_Id")

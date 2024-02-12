@@ -29,19 +29,11 @@ public class Customer {
     @Column(name = "Password", length = 20,nullable = false)
     private String createPassword;
 
+
 //    @Column(name = "Address")
-//    private  String address;
+//    private  Address address;
 
-//    @OneToMany(mappedBy = "customers",cascade = CascadeType.ALL)
-//    private List<Order> products;
-
-    /*public Customer(String fullName, long phoneNo, String emailId, String createPassword) {
-        this.fullName = fullName;
-        this.phoneNo = phoneNo;
-        this.emailId = emailId;
-        this.createPassword = createPassword;
-    }*/
-
-
+    @OneToMany(mappedBy = "customers",cascade = CascadeType.ALL)
+    private List<Order> products;
 
 }

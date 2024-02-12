@@ -1,20 +1,20 @@
 package com.example.Ecommerce.Web.Apk.Modules;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity
 @Data
-@Table(name = "orders")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
 
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "orderId")
@@ -28,13 +28,14 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "customer_Id")
-    private Customer customer;
+    private Customer customers;
 
     @ManyToOne
     @JoinColumn(name = "addressId")
     private Address address;
 
-//    private Payment payment;
-//    private List<OrderItems> orderItems;
+    private Payment payment;
+
+    private List<OrderItems> orderItems;
 
 }

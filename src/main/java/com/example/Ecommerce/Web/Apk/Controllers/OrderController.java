@@ -32,8 +32,7 @@ public class OrderController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Order> updateOrderById(@PathVariable("id") int id,
-                                                 @RequestBody Order order){
+    public ResponseEntity<Order> updateById(@PathVariable("id")int id,@RequestBody Order order){
         return new ResponseEntity<Order>(orderServices.updateOrderById(order,id),HttpStatus.OK);
     }
 

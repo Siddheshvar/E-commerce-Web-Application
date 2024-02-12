@@ -1,21 +1,23 @@
 package com.example.Ecommerce.Web.Apk.Modules;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Payment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "payment_Id")
-    private long paymentId;
+    private Integer paymentId;
 
     @OneToOne
-    @JoinColumn(name = "order_id")
     private Order order;
 
-    @Column(name = "amount")
-    private Double amount;
+    private Float amount;
 
 }

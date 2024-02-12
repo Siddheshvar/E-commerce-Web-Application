@@ -38,8 +38,10 @@ public class AddressServicesImpl implements AddressServices{
         oldAddress.setApartmentOrColony(address.getApartmentOrColony());
         oldAddress.setAreaOrVillage(address.getAreaOrVillage());
         oldAddress.setCity(address.getCity());
-        oldAddress.setDistrict(address.getDistrict());
         oldAddress.setPinCode(address.getPinCode());
+        oldAddress.setDistrict(address.getDistrict());
+        oldAddress.setState(address.getState());
+        oldAddress.setCountry(address.getCountry());
 
         return this.addressRepository.save(oldAddress);
     }

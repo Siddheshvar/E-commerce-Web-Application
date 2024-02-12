@@ -1,13 +1,17 @@
 package com.example.Ecommerce.Web.Apk.Modules;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.Set;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,8 +37,8 @@ public class Products {
 //    @JoinColumn(name = "order_Id")
 //    private Order order;
 //
-//    @ManyToMany(mappedBy = "products")
-//    private Set<Category> categories;
+    @ManyToMany(mappedBy = "products")
+    private Set<Category> categories;
 
 //    @ManyToOne
 //    @JoinColumn(name = "orderId")
