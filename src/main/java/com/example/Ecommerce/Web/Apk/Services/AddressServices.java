@@ -7,9 +7,9 @@ import java.util.List;
 
 @Service
 public interface AddressServices {
-    Address saveAddress(Address address);
-    List<Address> getall();
-    Address getAddressById(int id);
-    Address updateAddressById(Address address,int id);
-    void deleteAddressById(int id);
+    Address save(Address address);
+    List<Address> getAll();
+    Address getById(Long id);
+    Address updateById(Address address,Long id);
+    void deleteById(Long id);
 }

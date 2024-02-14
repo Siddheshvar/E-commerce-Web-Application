@@ -2,8 +2,8 @@ package com.example.Ecommerce.Web.Apk.Services;
 
 import com.example.Ecommerce.Web.Apk.Modules.Address;
 import com.example.Ecommerce.Web.Apk.Repositories.AddressRepository;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,33 +13,36 @@ public class AddressServicesImpl implements AddressServices{
     @Autowired
     private AddressRepository addressRepository;
 
+
     @Override
-    public Address saveAddress(Address address) {
+    public Address save(Address address) {
         return this.addressRepository.save(address);
     }
 
     @Override
-    public List<Address> getall() {
+    public List<Address> getAll() {
         return this.addressRepository.findAll();
     }
 
     @Override
-    public Address getAddressById(int id) {
+    public Address getById(Long id) {
         return this.addressRepository.findById(id).orElseThrow(()->
-                new RuntimeException("Address not found!"));
+         new RuntimeException("Address not found!"));
     }
 
     @Override
-    public Address updateAddressById(@NotNull Address address, int id) {
+    public Address updateById(Address address, Long id) {
         Address oldAddress = addressRepository.findById(id).orElseThrow(()->
                 new RuntimeException("Address not found!"));
 
         oldAddress.setFlatOrHouseNo(address.getFlatOrHouseNo());
-        oldAddress.setApartmentOrColony(address.getApartmentOrColony());
-        oldAddress.setAreaOrVillage(address.getAreaOrVillage());
+        oldAddress.setResidencyOrApartment(address.getResidencyOrApartment());
+        oldAddress.setAreaOrColony(address.getAreaOrColony());
+        oldAddress.setTownOrVillage(address.getTownOrVillage());
         oldAddress.setCity(address.getCity());
-        oldAddress.setPinCode(address.getPinCode());
+        oldAddress.setSubDistrict(address.getSubDistrict());
         oldAddress.setDistrict(address.getDistrict());
+        oldAddress.setPinCode(address.getPinCode());
         oldAddress.setState(address.getState());
         oldAddress.setCountry(address.getCountry());
 
@@ -47,7 +50,7 @@ public class AddressServicesImpl implements AddressServices{
     }
 
     @Override
-    public void deleteAddressById(int id) {
+    public void deleteById(Long id) {
         addressRepository.findById(id).orElseThrow(()->
                 new RuntimeException("Address not found!"));
         addressRepository.deleteById(id);
