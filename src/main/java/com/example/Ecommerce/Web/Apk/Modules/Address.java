@@ -1,7 +1,9 @@
 package com.example.Ecommerce.Web.Apk.Modules;
 
-import jakarta.persistence.*;
+
 import lombok.Data;
+
+import javax.persistence.*;
 
 @Entity
 @Data

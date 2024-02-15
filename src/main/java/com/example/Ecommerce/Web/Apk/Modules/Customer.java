@@ -1,14 +1,13 @@
 package com.example.Ecommerce.Web.Apk.Modules;
 
-import jakarta.persistence.*;
 import lombok.Data;
-;import javax.validation.constraints.Pattern;
+import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Entity
 @Data
 @Table(name = "Customers")
-//@NoArgsConstructor
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,8 +29,8 @@ public class Customer {
     private String createPassword;
 
 
-//    @Column(name = "Address")
-//    private  Address address;
+    @Column(name = "Address")
+    private  Address address;
 
     @OneToMany(mappedBy = "customers",cascade = CascadeType.ALL)
     private List<Order> products;

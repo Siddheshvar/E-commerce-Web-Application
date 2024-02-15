@@ -1,25 +1,29 @@
 package com.example.Ecommerce.Web.Apk.Modules;
 
-import jakarta.persistence.*;
 import lombok.Data;
+
+import javax.persistence.*;
+
 
 @Entity
 @Data
+@Table(name = "OrderItems")
 public class OrderItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "item_Id")
-    private long itemId;
-    @ManyToOne
-    @JoinColumn(name = "product_Id")
-    private Products productDetails;
-
-    @Column(name = "Item_Qty")
-    private int itemQty;
-    @Column(name = "Sub_Total")
-    private double subTotal;
+    private Long itemId;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "product_id")
+    private Products itemDetails;
+
+    private Integer itemQty;
+
+    @Column(name = "subTotal")
+    private Double itemsSubTotal;
+
+    @ManyToOne
+    @JoinColumn(name = "orderId")
     private Order order;
+
 }

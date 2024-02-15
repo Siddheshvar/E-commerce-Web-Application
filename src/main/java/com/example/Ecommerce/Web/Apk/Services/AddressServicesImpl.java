@@ -3,16 +3,19 @@ package com.example.Ecommerce.Web.Apk.Services;
 import com.example.Ecommerce.Web.Apk.Modules.Address;
 import com.example.Ecommerce.Web.Apk.Repositories.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Component
 public class AddressServicesImpl implements AddressServices{
-    @Autowired
+//    @Autowired
     private AddressRepository addressRepository;
-
+    public AddressServicesImpl(AddressRepository addressRepository) {
+        this.addressRepository = addressRepository;
+    }
 
     @Override
     public Address save(Address address) {

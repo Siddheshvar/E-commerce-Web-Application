@@ -1,17 +1,14 @@
 package com.example.Ecommerce.Web.Apk.Modules;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+//import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,9 +30,9 @@ public class Products {
     @Column(name = "stock_quantity")
     private long stockQuantity;
 
-//    @ManyToOne
-//    @JoinColumn(name = "order_Id")
-//    private Order order;
+    @ManyToOne
+    @JoinColumn(name = "order_Id")
+    private Order order;
 //
     @ManyToMany(mappedBy = "products")
     private Set<Category> categories;
