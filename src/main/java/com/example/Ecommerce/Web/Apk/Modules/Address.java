@@ -1,4 +1,4 @@
-package com.example.Ecommerce.Web.Apk.Modules;
+package com.example.Ecommerce.Web.Apk.Module;
 
 
 import lombok.Data;
